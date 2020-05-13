@@ -1,0 +1,23 @@
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+
+
+// Fonts
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css');
+
+// Vuetify
+@import '~vuetify/dist/vuetify.min.css';
+
+.is-invalid{
+    -webkit-animation: v-shake 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+          animation: v-shake 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+    // color: red;
+    // box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    // border-color: #dc3545;
+}
