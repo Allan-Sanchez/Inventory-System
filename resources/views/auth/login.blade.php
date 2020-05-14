@@ -50,7 +50,9 @@
                             </v-btn>
                         @endif
     
-                        <v-btn type="submit" color="primary">{{ __('Login') }}</v-btn>
+                        <v-btn type="submit" color="primary">{{ __('Login') }}
+                            <v-icon right>mdi-lock</v-icon> 
+                        </v-btn>
                     </div>
                   
                 </form>
