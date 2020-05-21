@@ -67,6 +67,21 @@
         @extends('layouts.app')
 
 @section('content')
+<v-row class=" justify-center">
+    <v-col sm="12" md="6" class="col-12 text-center d-flex justify-center align-center">
+        <div>
+            <h1 class=" display-2">Inventory System</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A molestias aperiam tenetur pariatur odit. Doloremque amet repellendus quas magni vel.</p>
+            <v-btn color="primary" dark class=" font-weight-bold">About us..</v-btn>
+        </div>
+    </v-col>
+
+    <v-col sm="12" md="6" class="col-12">
+        <div class="d-flex justify-center align-center">
+            <img class="mx-auto" src="{{ asset('img/1.svg') }}" alt="" width="80%">
+        </div>
+    </v-col>
+</v-row>
 
 @endsection
         {{-- <div class="flex-center position-ref full-height">

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -40,7 +41,7 @@
               <v-divider></v-divider>
 
               <v-list dense>
-                <v-list-item link>
+                <v-list-item to="/home" link >
                   <v-list-item-action>
                     <v-icon>mdi-home</v-icon>
                   </v-list-item-action>
@@ -48,12 +49,28 @@
                     <v-list-item-title>Home</v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item to="/user" link>
                   <v-list-item-action>
-                    <v-icon>mdi-contact-mail</v-icon>
+                    <v-icon>mdi-account</v-icon>
                   </v-list-item-action>
                   <v-list-item-content>
-                    <v-list-item-title>Contact</v-list-item-title>
+                    <v-list-item-title>Users</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="/shopping" link>
+                  <v-list-item-action>
+                    <v-icon>mdi-cart</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title>Shopping</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="inventory" link>
+                  <v-list-item-action>
+                    <v-icon>mdi-book-open-page-variant</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title>Inventary</v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -120,7 +137,12 @@
               <v-container
                 class="fill-height"
                 fluid >
-                @yield('content')
+                @guest
+                  @yield('content')     
+                @endguest
+                @auth 
+                <router-view></router-view>
+                @endauth
 
               </v-container>
             </v-content>
