@@ -18,9 +18,20 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import router from './router';
+import VueTimeago from 'vue-timeago';
 
 Vue.use(VueRouter);
 Vue.use(Vuetify);
+Vue.use(VueTimeago,{
+    name: 'Timeago', // Component name, `Timeago` by default
+    locale: 'es', // Default locale
+    // We use `date-fns` under the hood
+    // So you can use all locales from it
+    locales: {
+      'es-MX': require('date-fns/locale/es'),
+    //   ja: require('date-fns/locale/ja')
+    }
+  });
 
 const app = new Vue({
     el: '#app',

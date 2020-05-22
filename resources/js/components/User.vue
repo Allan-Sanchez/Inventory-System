@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <v-col md="12">
+        <v-col sm="12" class="d-flex justify-space-between">
             <div>
                 <v-breadcrumbs :items="items">
                     <template v-slot:divider>
@@ -8,8 +8,48 @@
                     </template>
                 </v-breadcrumbs>
             </div>
+
+            <div>
+                <v-btn color="teal" dark>Create User</v-btn>
+            </div>
         </v-col>
-        <v-col md="12">
+        <v-col md="4">
+            <v-card>
+                <v-card-title class="d-flex justify-center">
+                    User Detail
+                </v-card-title>
+                <v-card-text class="d-flex justify-center flex-column">
+                    <div class="d-flex justify-center">
+                        <v-avatar height="100" width="100">
+                            <img
+                                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                                alt="John"
+                            />
+                        </v-avatar>
+                    </div>
+                    <div>
+                        <v-text-field
+                            :counter="20"
+                            label="Name"
+                            v-model="user.name"
+                            required
+                        ></v-text-field>
+
+                        <v-text-field
+                            :counter="20"
+                            v-model="user.email"
+                            label="Email"
+                            required
+                        ></v-text-field>
+
+                    </div>
+                    <div class="d-flex justify-end mt-5">
+                        <v-btn color="indigo" dark>Editar</v-btn>
+                    </div>
+                </v-card-text>
+            </v-card>
+        </v-col>
+        <v-col md="8">
             <v-card>
                 <v-card-title>
                     Users
@@ -23,12 +63,24 @@
                     ></v-text-field>
                 </v-card-title>
                 <v-data-table
+                    item-key="email"
+                    class="elevation-1"
+                    :loading="tableLoading"
+                    loading-text="Loading... Please wait"
                     :headers="headers"
                     :items="desserts"
                     :search="search"
                 >
+                    <template v-slot:item.created_at="{ item }">
+                        <timeago :datetime="item.created_at"></timeago>
+                    </template>
+
                     <template v-slot:item.actions="{ item }">
-                        <v-icon color="indigo" class="mr-2" @click="editItem(item.id)">
+                        <v-icon
+                            color="indigo"
+                            class="mr-2"
+                            @click="editItem(item.id)"
+                        >
                             mdi-pencil
                         </v-icon>
                         <v-icon color="red" @click="deleteItem(item.id)">
@@ -45,7 +97,11 @@
 export default {
     data() {
         return {
-            user: {},
+            tableLoading: true,
+            user: {
+                name:"Allan",
+                email:"admin@gmai.com"
+            },
             items: [
                 {
                     text: "Home",
@@ -61,7 +117,7 @@ export default {
             search: "",
             headers: [
                 {
-                    text: "Nombre",
+                    text: "Name",
                     align: "start",
                     sortable: false,
                     value: "name"
@@ -75,18 +131,19 @@ export default {
     },
     created() {
         axios.get("http://inventory-system.test/getUser").then(res => {
-            this.user = res.data;
+            // this.user = res.data;
+            this.tableLoading = false;
             this.desserts = res.data;
-            console.log(res.data)
+            // console.log(res.data);
         });
     },
     methods: {
         editItem(item) {
-           console.log(item);
+            console.log(item);
         },
 
         deleteItem(item) {
-           console.log(item)
+            console.log(item);
         }
     }
 };
