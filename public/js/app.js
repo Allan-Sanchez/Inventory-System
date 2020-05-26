@@ -2078,7 +2078,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("http://inventory-system.test/getUser").then(function (res) {
+    axios.get("http://inventory-system.test/getuser").then(function (res) {
       // this.user = res.data;
       _this.tableLoading = false;
       _this.desserts = res.data; // console.log(res.data);

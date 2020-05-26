@@ -57,14 +57,6 @@
                     <v-list-item-title>Users</v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
-                <v-list-item to="/shopping" link>
-                  <v-list-item-action>
-                    <v-icon>mdi-cart</v-icon>
-                  </v-list-item-action>
-                  <v-list-item-content>
-                    <v-list-item-title>Shopping</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
                 <v-list-item to="inventory" link>
                   <v-list-item-action>
                     <v-icon>mdi-book-open-page-variant</v-icon>
@@ -73,6 +65,15 @@
                     <v-list-item-title>Inventary</v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
+                <v-list-item to="/shopping" link>
+                  <v-list-item-action>
+                    <v-icon>mdi-cart</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title>Shopping</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+                
               </v-list>
 
               <template v-slot:append>

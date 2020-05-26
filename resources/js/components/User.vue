@@ -10,7 +10,7 @@
             </div>
 
             <div>
-                <v-btn color="teal" dark>Create User</v-btn>
+                <v-btn   color="teal" dark>Create User</v-btn>
             </div>
         </v-col>
         <v-col md="4">
@@ -130,7 +130,7 @@ export default {
         };
     },
     created() {
-        axios.get("http://inventory-system.test/getUser").then(res => {
+        axios.get("http://inventory-system.test/getuser").then(res => {
             // this.user = res.data;
             this.tableLoading = false;
             this.desserts = res.data;

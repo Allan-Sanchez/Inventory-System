@@ -34,13 +34,6 @@ class HomeController extends Controller
         # code...
         $Users = User::all();
 
-        foreach ($Users as $user) {
-            # code...
-           $dateF = $user->created_at->format('M d Y');
-        //    array_push($Users,$dateF);
-        //    $Users.push($dataF);
-        }
-
         return response($Users);
     }
 }
