@@ -14,7 +14,7 @@
             </div>
         </v-col>
         <v-col md="4">
-            <v-card>
+            <v-card class="shadow-card">
                 <v-card-title class="d-flex justify-center">
                     User Detail
                 </v-card-title>
@@ -50,7 +50,7 @@
             </v-card>
         </v-col>
         <v-col md="8">
-            <v-card>
+            <v-card class="shadow-card" >
                 <v-card-title>
                     Users
                     <v-spacer></v-spacer>

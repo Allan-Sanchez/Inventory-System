@@ -2065,6 +2065,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3207,6 +3209,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3391,6 +3395,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3505,6 +3511,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -43316,6 +43324,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c("v-card-title", [
                 _vm._v("\n                Inventory Buy\n            ")
@@ -43382,54 +43391,61 @@ var render = function() {
         "v-col",
         { staticClass: "col-12", attrs: { sm: "12", md: "8" } },
         [
-          _c("v-data-table", {
-            staticClass: "elevation-1",
-            attrs: { headers: _vm.headers, items: _vm.desserts },
-            scopedSlots: _vm._u([
-              {
-                key: "item.actions",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [
-                    _c(
-                      "v-icon",
-                      {
-                        staticClass: "mr-2",
-                        attrs: { color: "indigo" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-pencil\n                "
+          _c(
+            "v-card",
+            { staticClass: "shadow-card" },
+            [
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: { headers: _vm.headers, items: _vm.desserts },
+                scopedSlots: _vm._u([
+                  {
+                    key: "item.actions",
+                    fn: function(ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "v-icon",
+                          {
+                            staticClass: "mr-2",
+                            attrs: { color: "indigo" },
+                            on: {
+                              click: function($event) {
+                                return _vm.editItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-pencil\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-icon",
+                          {
+                            attrs: { color: "red" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-delete\n                        "
+                            )
+                          ]
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-icon",
-                      {
-                        attrs: { color: "red" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-delete\n                "
-                        )
-                      ]
-                    )
-                  ]
-                }
-              }
-            ])
-          })
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -45280,6 +45296,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c("v-card-title", [
                 _vm._v("\n                Inventory Buy\n            ")
@@ -45337,54 +45354,61 @@ var render = function() {
         "v-col",
         { staticClass: "col-12", attrs: { sm: "12", md: "8" } },
         [
-          _c("v-data-table", {
-            staticClass: "elevation-1",
-            attrs: { headers: _vm.headers, items: _vm.desserts },
-            scopedSlots: _vm._u([
-              {
-                key: "item.actions",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [
-                    _c(
-                      "v-icon",
-                      {
-                        staticClass: "mr-2",
-                        attrs: { color: "indigo" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-pencil\n                "
+          _c(
+            "v-card",
+            { staticClass: "shadow-card" },
+            [
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: { headers: _vm.headers, items: _vm.desserts },
+                scopedSlots: _vm._u([
+                  {
+                    key: "item.actions",
+                    fn: function(ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "v-icon",
+                          {
+                            staticClass: "mr-2",
+                            attrs: { color: "indigo" },
+                            on: {
+                              click: function($event) {
+                                return _vm.editItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-pencil\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-icon",
+                          {
+                            attrs: { color: "red" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-delete\n                        "
+                            )
+                          ]
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-icon",
-                      {
-                        attrs: { color: "red" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-delete\n                "
-                        )
-                      ]
-                    )
-                  ]
-                }
-              }
-            ])
-          })
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -45448,6 +45472,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c("v-card-title", [
                 _vm._v("\n                Inventory Location\n            ")
@@ -45508,54 +45533,61 @@ var render = function() {
         "v-col",
         { attrs: { sm: "12", md: "8" } },
         [
-          _c("v-data-table", {
-            staticClass: "elevation-1",
-            attrs: { headers: _vm.headers, items: _vm.desserts },
-            scopedSlots: _vm._u([
-              {
-                key: "item.actions",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [
-                    _c(
-                      "v-icon",
-                      {
-                        staticClass: "mr-2",
-                        attrs: { color: "indigo" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-pencil\n                "
+          _c(
+            "v-card",
+            { staticClass: "shadow-card" },
+            [
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: { headers: _vm.headers, items: _vm.desserts },
+                scopedSlots: _vm._u([
+                  {
+                    key: "item.actions",
+                    fn: function(ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "v-icon",
+                          {
+                            staticClass: "mr-2",
+                            attrs: { color: "indigo" },
+                            on: {
+                              click: function($event) {
+                                return _vm.editItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-pencil\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-icon",
+                          {
+                            attrs: { color: "red" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-delete\n                        "
+                            )
+                          ]
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-icon",
-                      {
-                        attrs: { color: "red" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-delete\n                "
-                        )
-                      ]
-                    )
-                  ]
-                }
-              }
-            ])
-          })
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -45619,6 +45651,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c("v-card-title", [
                 _vm._v("\n                Inventory State\n            ")
@@ -45667,69 +45700,79 @@ var render = function() {
         "v-col",
         { attrs: { sm: "12", md: "8" } },
         [
-          _c("v-data-table", {
-            staticClass: "elevation-1",
-            attrs: { headers: _vm.headers, items: _vm.desserts },
-            scopedSlots: _vm._u([
-              {
-                key: "item.calories",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [
-                    _c(
-                      "v-chip",
-                      {
-                        attrs: { color: _vm.getColor(item.calories), dark: "" }
-                      },
-                      [_vm._v(_vm._s(item.calories))]
-                    )
-                  ]
-                }
-              },
-              {
-                key: "item.actions",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [
-                    _c(
-                      "v-icon",
-                      {
-                        staticClass: "mr-2",
-                        attrs: { color: "indigo" },
-                        on: {
-                          click: function($event) {
-                            return _vm.editItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-pencil\n                "
+          _c(
+            "v-card",
+            { staticClass: "shadow-card" },
+            [
+              _c("v-data-table", {
+                staticClass: "elevation-1",
+                attrs: { headers: _vm.headers, items: _vm.desserts },
+                scopedSlots: _vm._u([
+                  {
+                    key: "item.calories",
+                    fn: function(ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "v-chip",
+                          {
+                            attrs: {
+                              color: _vm.getColor(item.calories),
+                              dark: ""
+                            }
+                          },
+                          [_vm._v(_vm._s(item.calories))]
                         )
                       ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-icon",
-                      {
-                        attrs: { color: "red" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteItem(item.id)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    mdi-delete\n                "
+                    }
+                  },
+                  {
+                    key: "item.actions",
+                    fn: function(ref) {
+                      var item = ref.item
+                      return [
+                        _c(
+                          "v-icon",
+                          {
+                            staticClass: "mr-2",
+                            attrs: { color: "indigo" },
+                            on: {
+                              click: function($event) {
+                                return _vm.editItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-pencil\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-icon",
+                          {
+                            attrs: { color: "red" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteItem(item.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            mdi-delete\n                        "
+                            )
+                          ]
                         )
                       ]
-                    )
-                  ]
-                }
-              }
-            ])
-          })
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -45803,6 +45846,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c("v-card-title", { staticClass: "d-flex justify-center" }, [
                 _vm._v("\n                User Detail\n            ")
@@ -45885,6 +45929,7 @@ var render = function() {
         [
           _c(
             "v-card",
+            { staticClass: "shadow-card" },
             [
               _c(
                 "v-card-title",

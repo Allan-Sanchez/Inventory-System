@@ -11,7 +11,7 @@
         </v-col>
 
         <v-col sm="12" md="4">
-            <v-card>
+            <v-card class="shadow-card">
                 <v-card-title>
                     Inventory State
                 </v-card-title>
@@ -39,30 +39,32 @@
         </v-col>
 
         <v-col sm="12" md="8">
-            <v-data-table
-                :headers="headers"
-                :items="desserts"
-                class="elevation-1"
-            >
-                <template v-slot:item.calories="{ item }">
-                    <v-chip :color="getColor(item.calories)" dark>{{
-                        item.calories
-                    }}</v-chip>
-                </template>
-
-                <template v-slot:item.actions="{ item }">
-                    <v-icon
-                        color="indigo"
-                        class="mr-2"
-                        @click="editItem(item.id)"
+            <v-card class="shadow-card">
+                    <v-data-table
+                        :headers="headers"
+                        :items="desserts"
+                        class="elevation-1"
                     >
-                        mdi-pencil
-                    </v-icon>
-                    <v-icon color="red" @click="deleteItem(item.id)">
-                        mdi-delete
-                    </v-icon>
-                </template>
-            </v-data-table>
+                        <template v-slot:item.calories="{ item }">
+                            <v-chip :color="getColor(item.calories)" dark>{{
+                                item.calories
+                            }}</v-chip>
+                        </template>
+
+                        <template v-slot:item.actions="{ item }">
+                            <v-icon
+                                color="indigo"
+                                class="mr-2"
+                                @click="editItem(item.id)"
+                            >
+                                mdi-pencil
+                            </v-icon>
+                            <v-icon color="red" @click="deleteItem(item.id)">
+                                mdi-delete
+                            </v-icon>
+                        </template>
+                    </v-data-table>
+            </v-card>
         </v-col>
     </v-row>
 </template>

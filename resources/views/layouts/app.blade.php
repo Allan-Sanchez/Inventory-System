@@ -152,7 +152,7 @@
     
             <v-content>
               <v-container
-                class="fill-height "
+                class="fill-height content-color"
                 fluid >
                 @guest
                   @yield('content')     
