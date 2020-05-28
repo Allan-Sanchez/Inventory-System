@@ -21,9 +21,11 @@
 
 import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
-import Shopping from './components/Shopping.vue';
+import Buy from './components/Buy.vue';
 import User from './components/User.vue';
 import Inventory from './components/Inventory.vue';
+import Location from './components/Location.vue';
+import State from './components/State.vue';
 
 let routes = [
     {
@@ -31,8 +33,8 @@ let routes = [
         component: Home
     },
     {
-        path: '/shopping',
-        component: Shopping
+        path: '/buy',
+        component: Buy
     },
     {
         path: '/user',
@@ -41,6 +43,14 @@ let routes = [
     {
         path: '/inventory',
         component: Inventory
+    },
+    {
+        path: '/location',
+        component: Location
+    },
+    {
+        path: '/state',
+        component: State
     }
 ];
 

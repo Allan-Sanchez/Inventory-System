@@ -18,7 +18,7 @@ class CreateBuysTable extends Migration
             $table->id();
             $table->string('state');
             $table->string('name');
-            $table->float('price',8,2);
+            // $table->float('price',8,2);
             $table->timestamps();
         });
 

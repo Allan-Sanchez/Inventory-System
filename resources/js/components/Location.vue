@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <v-col sm="12" class="col-12 d-flex justify-space-between">
+        <v-col sm="12" class="d-flex justify-space-between">
             <div>
                 <v-breadcrumbs :items="items">
                     <template v-slot:divider>
@@ -10,24 +10,31 @@
             </div>
         </v-col>
 
-        <v-col sm="12" md="4" class="col-12">
+        <v-col sm="12" md="4">
             <v-card>
                 <v-card-title>
-                    Inventory Buy
+                    Inventory Location
                 </v-card-title>
 
                 <v-card-text>
                     <v-form>
                         <v-text-field
                             :counter="10"
-                            label="Codigo"
-                            disabled
+                            label="Name Manager"
                             required
                         ></v-text-field>
 
-                        <v-select :items="itemBranch" label="Branch"></v-select>
+                        <v-text-field
+                            :counter="10"
+                            label="Name Branch"
+                            required
+                        ></v-text-field>
 
-                        <v-select :items="itemSelect" label="State"></v-select>
+                        <v-text-field
+                            :counter="10"
+                            label="Address"
+                            required
+                        ></v-text-field>
 
                         <div class="d-flex justify-end align-center mt-5">
                             <v-btn color="indigo" dark> Add</v-btn>
@@ -37,7 +44,7 @@
             </v-card>
         </v-col>
 
-        <v-col sm="12" md="8" class="col-12">
+        <v-col sm="12" md="8">
             <v-data-table
                 :headers="headers"
                 :items="desserts"
@@ -71,9 +78,9 @@ export default {
                     to: "/home"
                 },
                 {
-                    text: "Buy",
+                    text: "Location",
                     disabled: false,
-                    to: "/buy"
+                    to: "/location"
                 }
             ],
             headers: [
@@ -119,9 +126,7 @@ export default {
                     fat: 16.0,
                     carbs: 49
                 }
-            ],
-            itemSelect: ["Foo", "Bar", "Fizz", "Buzz"],
-            itemBranch: ["El carrisal", "Barberena", "El cerinal"]
+            ]
         };
     },
     methods: {

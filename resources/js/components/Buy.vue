@@ -20,14 +20,23 @@
                     <v-form>
                         <v-text-field
                             :counter="10"
-                            label="Codigo"
-                            disabled
+                            label="Name Provider"
                             required
                         ></v-text-field>
 
-                        <v-select :items="itemBranch" label="Branch"></v-select>
+                        <v-text-field
+                            type="number"
+                            :counter="10"
+                            label="Price"
+                            required
+                        ></v-text-field>
 
-                        <v-select :items="itemSelect" label="State"></v-select>
+                        <v-text-field
+                            :counter="10"
+                            type="number"
+                            label="Quantity"
+                            required
+                        ></v-text-field>
 
                         <div class="d-flex justify-end align-center mt-5">
                             <v-btn color="indigo" dark> Add</v-btn>
@@ -119,9 +128,7 @@ export default {
                     fat: 16.0,
                     carbs: 49
                 }
-            ],
-            itemSelect: ["Foo", "Bar", "Fizz", "Buzz"],
-            itemBranch: ["El carrisal", "Barberena", "El cerinal"]
+            ]
         };
     },
     methods: {
