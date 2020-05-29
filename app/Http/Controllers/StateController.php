@@ -14,7 +14,10 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        // $state = State::all();
+        $state = State::with('buy')->get();
+
+       return response($state);
     }
 
     /**

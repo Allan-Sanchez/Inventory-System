@@ -14,7 +14,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        $inventory = Inventory::with(['state','location'])->get();
+
+        return response($inventory);
     }
 
     /**

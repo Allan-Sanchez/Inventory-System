@@ -14,7 +14,10 @@ class BuyController extends Controller
      */
     public function index()
     {
-        //
+        // $buys = Buy::all();
+        $buys = Buy::with('state')->get();
+
+        return response($buys);
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
     <v-row>
         <v-col md="3">
-            <v-card class="mx-auto" max-width="344" color="pink lighten-2" dark>
+            <v-card to="/user" class="mx-auto" max-width="344" color="pink lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
                         <v-list-item-title class="headline mb-1"
@@ -124,7 +124,7 @@
         </v-col>
 
         <v-col md="3">
-            <v-card class="mx-auto" max-width="344" color="blue lighten-2" dark>
+            <v-card to="inventory" class="mx-auto" max-width="344" color="blue lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
                         <v-list-item-title class="headline mb-1"
@@ -347,7 +347,7 @@
         </v-col>
 
         <v-col md="3">
-            <v-card class="mx-auto" max-width="344" color="teal lighten-2" dark>
+            <v-card to="/buy" class="mx-auto" max-width="344" color="teal lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
                         <v-list-item-title class="headline mb-1"
@@ -661,7 +661,7 @@
         </v-col>
 
         <v-col md="3">
-            <v-card
+            <v-card to="/location"
                 class="mx-auto"
                 max-width="344"
                 color="indigo lighten-2"
