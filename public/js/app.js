@@ -3631,15 +3631,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this4.getData();
 
-                _context4.next = 17;
+                _context4.next = 18;
                 break;
 
               case 14:
                 _this4.text = 'Please fill the input.';
+                _this4.colorSnackbar = 'red';
                 _this4.snackbar = true;
                 return _context4.abrupt("return");
 
-              case 17:
+              case 18:
               case "end":
                 return _context4.stop();
             }
@@ -3726,6 +3727,35 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3806,7 +3836,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tableLoading: true,
+      colorSnackbar: 'red',
+      snackbar: false,
+      text: 'My timeout is set to 2000.',
+      timeout: 5000,
+      tableLoading: false,
+      nameRules: [function (v) {
+        return !!v || 'input is required';
+      }, function (v) {
+        return v && v.length <= 40 || 'input must be less than 10 characters';
+      }],
+      valid: true,
+      btnedit: false,
+      idState: null,
+      nameState: '',
+      descriptionState: '',
       items: [{
         text: "Home",
         disabled: false,
@@ -3831,30 +3875,189 @@ __webpack_require__.r(__webpack_exports__);
         text: "Actions",
         value: "actions",
         sortable: false
-      } // { text: "Carbs (g)", value: "carbs" },
-      // { text: "Actions", value: "actions", sortable: false }
-      ],
+      }],
       desserts: []
     };
   },
   created: function created() {
-    var _this = this;
-
-    axios.get("http://inventory-system.test/getstate").then(function (res) {
-      // this.user = res.data;
-      _this.tableLoading = false;
-      _this.desserts = res.data; // console.log(res.data);
-    });
+    this.getData();
   },
   methods: {
     getColor: function getColor(state) {
-      if (state == "store") return "red";else if (state == "sold") return "orange";else return "green";
+      if (state == "sold") return "red";else if (state == "break") return "orange";else return "green";
+    },
+    getData: function getData() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("http://inventory-system.test/getstate");
+
+              case 2:
+                res = _context.sent;
+                _this.tableLoading = false;
+                _this.desserts = res.data;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    addState: function addState() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this2.nameState !== '' && _this2.descriptionState !== '')) {
+                  _context2.next = 12;
+                  break;
+                }
+
+                _context2.next = 3;
+                return axios.post('http://inventory-system.test/getstate', {
+                  state: _this2.nameState,
+                  description: _this2.descriptionState
+                });
+
+              case 3:
+                res = _context2.sent;
+                _this2.nameState = ' ';
+                _this2.descriptionState = ' ';
+                _this2.colorSnackbar = 'green';
+                _this2.text = res.data;
+                _this2.snackbar = true;
+
+                _this2.getData();
+
+                _context2.next = 15;
+                break;
+
+              case 12:
+                _this2.text = 'Please fill the input.';
+                _this2.snackbar = true;
+                return _context2.abrupt("return");
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     editItem: function editItem(item) {
-      console.log(item);
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("http://inventory-system.test/getstate/".concat(item, "/edit"));
+
+              case 2:
+                res = _context3.sent;
+                _this3.nameState = res.data.state;
+                _this3.descriptionState = res.data.description;
+                _this3.idState = res.data.id;
+                _this3.btnedit = true;
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    updateItem: function updateItem() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!(_this4.nameState !== '' && _this4.descriptionState !== '')) {
+                  _context4.next = 13;
+                  break;
+                }
+
+                _context4.next = 3;
+                return axios.put("http://inventory-system.test/getstate/".concat(_this4.idState), {
+                  state: _this4.nameState,
+                  description: _this4.descriptionState
+                });
+
+              case 3:
+                res = _context4.sent;
+                _this4.nameState = ' ';
+                _this4.descriptionState = ' ';
+                _this4.colorSnackbar = 'green';
+                _this4.text = res.data;
+                _this4.snackbar = true;
+                _this4.btnedit = false;
+
+                _this4.getData();
+
+                _context4.next = 16;
+                break;
+
+              case 13:
+                _this4.text = 'Please fill the input.';
+                _this4.snackbar = true;
+                return _context4.abrupt("return");
+
+              case 16:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
     },
     deleteItem: function deleteItem(item) {
-      console.log(item);
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return axios["delete"]("http://inventory-system.test/getstate/".concat(item));
+
+              case 2:
+                res = _context5.sent;
+                _this5.colorSnackbar = 'green';
+                _this5.text = res.data;
+                _this5.snackbar = true;
+
+                _this5.getData();
+
+              case 7:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
     }
   }
 });
@@ -44431,7 +44634,7 @@ var render = function() {
     [
       _c(
         "v-col",
-        { attrs: { md: "3" } },
+        { staticClass: "col-12", attrs: { sm: "6", md: "3" } },
         [
           _c(
             "v-card",
@@ -44662,7 +44865,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { md: "3" } },
+        { staticClass: "col-12", attrs: { sm: "6", md: "3" } },
         [
           _c(
             "v-card",
@@ -45083,7 +45286,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { md: "3" } },
+        { staticClass: "col-12", attrs: { sm: "6", md: "3" } },
         [
           _c(
             "v-card",
@@ -45655,7 +45858,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { md: "3" } },
+        { staticClass: "col-12", attrs: { sm: "6", md: "3" } },
         [
           _c(
             "v-card",
@@ -46179,28 +46382,28 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { staticClass: "col-6" },
+        { staticClass: "col-12", attrs: { md: "6" } },
         [_c("pie", { attrs: { height: 300 } })],
         1
       ),
       _vm._v(" "),
       _c(
         "v-col",
-        { staticClass: "col-6" },
+        { staticClass: "col-12", attrs: { md: "6" } },
         [_c("areachart", { attrs: { height: 300 } })],
         1
       ),
       _vm._v(" "),
       _c(
         "v-col",
-        { staticClass: "col-6" },
+        { staticClass: "col-12", attrs: { md: "6" } },
         [_c("linechart", { attrs: { height: 300 } })],
         1
       ),
       _vm._v(" "),
       _c(
         "v-col",
-        { staticClass: "col-6" },
+        { staticClass: "col-12", attrs: { md: "6" } },
         [_c("barchart", { attrs: { height: 300 } })],
         1
       )
@@ -46703,7 +46906,10 @@ var render = function() {
     [
       _c(
         "v-col",
-        { staticClass: "d-flex justify-space-between", attrs: { sm: "12" } },
+        {
+          staticClass: " col-12 d-flex justify-space-between",
+          attrs: { sm: "12" }
+        },
         [
           _c(
             "div",
@@ -46722,13 +46928,48 @@ var render = function() {
               })
             ],
             1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-snackbar",
+            {
+              attrs: {
+                timeout: _vm.timeout,
+                color: _vm.colorSnackbar,
+                top: "top"
+              },
+              model: {
+                value: _vm.snackbar,
+                callback: function($$v) {
+                  _vm.snackbar = $$v
+                },
+                expression: "snackbar"
+              }
+            },
+            [
+              _vm._v("\n          " + _vm._s(_vm.text) + "\n          "),
+              _c(
+                "v-btn",
+                {
+                  attrs: { dark: "", text: "" },
+                  on: {
+                    click: function($event) {
+                      _vm.snackbar = false
+                    }
+                  }
+                },
+                [_vm._v("\n            Close\n          ")]
+              )
+            ],
+            1
           )
-        ]
+        ],
+        1
       ),
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { sm: "12", md: "4" } },
+        { staticClass: "col-12", attrs: { sm: "12", md: "4" } },
         [
           _c(
             "v-card",
@@ -46743,16 +46984,52 @@ var render = function() {
                 [
                   _c(
                     "v-form",
+                    {
+                      ref: "form",
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.addState()
+                        }
+                      },
+                      model: {
+                        value: _vm.valid,
+                        callback: function($$v) {
+                          _vm.valid = $$v
+                        },
+                        expression: "valid"
+                      }
+                    },
                     [
                       _c("v-text-field", {
-                        attrs: { counter: 10, label: "State", required: "" }
+                        attrs: {
+                          counter: 10,
+                          rules: _vm.nameRules,
+                          label: "State",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.nameState,
+                          callback: function($$v) {
+                            _vm.nameState = $$v
+                          },
+                          expression: "nameState"
+                        }
                       }),
                       _vm._v(" "),
                       _c("v-text-field", {
                         attrs: {
-                          counter: 10,
+                          counter: 30,
                           label: "Description",
+                          rules: _vm.nameRules,
                           required: ""
+                        },
+                        model: {
+                          value: _vm.descriptionState,
+                          callback: function($$v) {
+                            _vm.descriptionState = $$v
+                          },
+                          expression: "descriptionState"
                         }
                       }),
                       _vm._v(" "),
@@ -46760,11 +47037,34 @@ var render = function() {
                         "div",
                         { staticClass: "d-flex justify-end align-center mt-5" },
                         [
-                          _c(
-                            "v-btn",
-                            { attrs: { color: "indigo", dark: "" } },
-                            [_vm._v(" Add")]
-                          )
+                          !_vm.btnedit
+                            ? _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    type: "submit",
+                                    color: "indigo",
+                                    dark: ""
+                                  }
+                                },
+                                [_vm._v(" Add")]
+                              )
+                            : _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    type: "button",
+                                    color: "success",
+                                    dark: ""
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.updateItem()
+                                    }
+                                  }
+                                },
+                                [_vm._v(" Update")]
+                              )
                         ],
                         1
                       )
@@ -46783,7 +47083,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { sm: "12", md: "8" } },
+        { staticClass: "col-12", attrs: { sm: "12", md: "8" } },
         [
           _c(
             "v-card",

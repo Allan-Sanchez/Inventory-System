@@ -1,6 +1,6 @@
 <template>
     <v-row>
-        <v-col md="3">
+        <v-col class="col-12" sm="6" md="3">
             <v-card to="/user" class="mx-auto" max-width="344" color="pink lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
@@ -123,7 +123,7 @@
             </v-card>
         </v-col>
 
-        <v-col md="3">
+        <v-col class="col-12" sm="6" md="3">
             <v-card to="inventory" class="mx-auto" max-width="344" color="blue lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
@@ -346,7 +346,7 @@
             </v-card>
         </v-col>
 
-        <v-col md="3">
+        <v-col class="col-12" sm="6" md="3">
             <v-card to="/buy" class="mx-auto" max-width="344" color="teal lighten-2" dark>
                 <v-list-item three-line>
                     <v-list-item-content>
@@ -660,7 +660,7 @@
             </v-card>
         </v-col>
 
-        <v-col md="3">
+        <v-col class="col-12" sm="6" md="3">
             <v-card to="/location"
                 class="mx-auto"
                 max-width="344"
@@ -955,19 +955,19 @@
             </v-card>
         </v-col>
 
-        <v-col class="col-6">
+        <v-col class="col-12" md="6">
             <pie :height="300"></pie>
         </v-col>
 
-        <v-col class="col-6">
+        <v-col class="col-12" md="6">
             <areachart :height="300"></areachart>
         </v-col>
 
-        <v-col class="col-6">
+        <v-col class="col-12" md="6">
             <linechart :height="300"></linechart>
         </v-col>
 
-        <v-col class="col-6">
+        <v-col class="col-12" md="6">
             <barchart :height="300"></barchart>
         </v-col>
     </v-row>

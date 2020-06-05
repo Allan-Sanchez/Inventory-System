@@ -14,21 +14,12 @@ class StateController extends Controller
      */
     public function index()
     {
-        // $state = State::all();
-        $state = State::with('buy')->get();
+        $state = State::all();
+        // $state = State::with('buy')->get();
 
        return response($state);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,18 +29,11 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\State  $state
-     * @return \Illuminate\Http\Response
-     */
-    public function show(State $state)
-    {
-        //
+        $state = new State;
+        $state->state = $request->input('state');
+        $state->description = $request->input('description');
+        $state->save();
+        return response('state added success full',201);
     }
 
     /**
@@ -58,9 +42,12 @@ class StateController extends Controller
      * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function edit(State $state)
+    public function edit( $state)
     {
-        //
+        // $location = Location::findOrfail($location);
+        $state = State::findOrfail($state);
+
+        return response( $state);
     }
 
     /**
@@ -70,9 +57,15 @@ class StateController extends Controller
      * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, State $state)
+    public function update(Request $request, $state)
     {
-        //
+        // $location = Location::findOrfail($location);
+        // $location->update($request->all());
+
+        $state = State::findOrfail($state);
+        $state->update($request->all());
+        return response('State updated sucessfull');
+        // return response($request);
     }
 
     /**
@@ -81,8 +74,10 @@ class StateController extends Controller
      * @param  \App\State  $state
      * @return \Illuminate\Http\Response
      */
-    public function destroy(State $state)
+    public function destroy( $state)
     {
-        //
+        State::findOrfail($state)->delete();
+
+        return response('State Deleted successfull');
     }
 }

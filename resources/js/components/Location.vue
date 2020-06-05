@@ -208,6 +208,7 @@ export default {
 
             }else{
                 this.text = 'Please fill the input.';
+                this.colorSnackbar='red';
                 this.snackbar = true;
                 return;
             }
